@@ -1,71 +1,244 @@
-<header class=".hero{
-  min-height:100vh;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 10%;
-  gap:40px;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-.hero-text{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
-}
+<head>
 
-.hero-image{
-  flex:1;
-  display:flex;
-  justify-content:center;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.profile-pic{
-  width:320px;
-  height:320px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid royalblue;
-  box-shadow:0 0 25px rgba(65,105,225,0.5);
-}
+  <title>Lee Carmelo Portfolio</title>
 
-h1{
-  font-size:70px;
-  color:#f5deb3;
-  margin-bottom:10px;
-}
+  <style>
 
-.subtitle{
-  font-size:24px;
-  color:royalblue;
-  margin-bottom:25px;
-}">
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-  <div class="hero-text">
+    body{
+      background:#000000;
+      color:#f5deb3;
+      line-height:1.6;
+    }
 
-    <h1>Lee Carmelo</h1>
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 10%;
+      gap:50px;
+    }
 
-    <p class="subtitle">
-      Virtual Assistant | Dispatcher | Recruiter
-    </p>
+    .hero-text{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+    }
 
-    <a href="#contact" class="btn">
-      Contact Me
-    </a>
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
 
-  </div>
+    .profile-pic{
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid royalblue;
+      box-shadow:0 0 25px rgba(65,105,225,0.5);
+    }
 
-  <div class="hero-image">
+    h1{
+      font-size:72px;
+      color:#f5deb3;
+      margin-bottom:10px;
+    }
 
-    <img 
-      src="https://imgur.com/a/yAH1Y9H"
-      alt="Lee Carmelo"
-      class="profile-pic"
-    >
+    .subtitle{
+      font-size:24px;
+      color:royalblue;
+      margin-bottom:30px;
+    }
 
-  </div>
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:royalblue;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
 
-</header>
+    .btn:hover{
+      transform:scale(1.05);
+      background:#4169e1;
+    }
 
+    section{
+      padding:80px 10%;
+    }
 
+    h2{
+      font-size:40px;
+      color:royalblue;
+      margin-bottom:20px;
+    }
+
+    .card{
+      background:#111111;
+      border:1px solid royalblue;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 0 15px rgba(65,105,225,0.2);
+    }
+
+    ul{
+      margin-left:20px;
+    }
+
+    li{
+      margin-bottom:10px;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#050505;
+      border-top:1px solid royalblue;
+      color:#f5deb3;
+    }
+
+    @media(max-width:768px){
+
+      .hero{
+        flex-direction:column-reverse;
+        justify-content:center;
+        text-align:center;
+        padding-top:50px;
+      }
+
+      .hero-text{
+        align-items:center;
+      }
+
+      h1{
+        font-size:44px;
+      }
+
+      .subtitle{
+        font-size:18px;
+      }
+
+      .profile-pic{
+        width:220px;
+        height:220px;
+      }
+
+      h2{
+        font-size:32px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header class="hero">
+
+    <div class="hero-text">
+
+      <h1>Lee Carmelo</h1>
+
+      <p class="subtitle">
+        Virtual Assistant | Dispatcher | Recruiter
+      </p>
+
+      <a href="#contact" class="btn">
+        Contact Me
+      </a>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img
+        src="https://imgur.com/a/yAH1Y9H"
+        alt="Lee Carmelo"
+        class="profile-pic"
+      >
+
+    </div>
+
+  </header>
+
+  <section>
+
+    <h2>About Me</h2>
+
+    <div class="card">
+
+      <p>
+        Experienced professional specializing in customer service,
+        dispatching, recruitment, appointment setting, and lead generation.
+        Dedicated to helping businesses stay organized and client-focused.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2>Skills</h2>
+
+    <div class="card">
+
+      <ul>
+        <li>Virtual Assistance</li>
+        <li>Recruitment</li>
+        <li>Dispatching</li>
+        <li>Appointment Setting</li>
+        <li>Lead Generation</li>
+        <li>Customer Service</li>
+      </ul>
+
+    </div>
+
+  </section>
+
+  <section id="contact">
+
+    <h2>Contact</h2>
+
+    <div class="card">
+
+      <p>Email: erlcarmelo25@gmail.com</p>
+      <p>Phone: 09935620503</p>
+      <p>Location: Parañaque City, Metro Manila</p>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <p>© 2026 Lee Carmelo. All Rights Reserved.</p>
+
+  </footer>
+
+</body>
+
+</html>
