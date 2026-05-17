@@ -1,135 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lee Carmelo Portfolio</title>
+<header class=".hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 10%;
+  gap:40px;
+}
 
-  <style>
+.hero-text{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+}
 
-    body{
-      margin:0;
-      font-family:Playfair Display;
-      background:#1C1C1C
-      color:Blackboard;
-    }
+.hero-image{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
 
-    header{
-      text-align:center;
-      padding:100px 20px;
-    }
-
-    h1{
-      font-size:55px;
-    }
-
-    .subtitle{
-      font-size:22px;
-      color:#d0d5db;
-    }
-
-    section{
-      padding:40px 10%;
-    }
-
-    .box{
-      background:#948922;
-      padding:25px;
-      border-radius:10px;
-      margin-top:20px;
-    }
-
-    h2{
-      color:#f8ee38;
-    }
-
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#020617;
-      margin-top:40px;
-    }
-
-  </style>
-  .profile-pic{
-  width:180px;
-  height:180px;
+.profile-pic{
+  width:320px;
+  height:320px;
   border-radius:50%;
   object-fit:cover;
-  border:5px solid #38bdf8;
-  margin-bottom:20px;
+  border:5px solid royalblue;
+  box-shadow:0 0 25px rgba(65,105,225,0.5);
 }
-</head>
 
-<body>
+h1{
+  font-size:70px;
+  color:#f5deb3;
+  margin-bottom:10px;
+}
 
-<header>
+.subtitle{
+  font-size:24px;
+  color:royalblue;
+  margin-bottom:25px;
+}">
 
-  <img 
-    src="https://imgur.com/a/yAH1Y9H"
-    alt="Lee Carmelo"
-    class="profile-pic"
-  >
+  <div class="hero-text">
 
-  <h1>Lee Carmelo>
+    <h1>Lee Carmelo</h1>
 
-  <p class="subtitle">
-    Virtual Assistant | Dispatcher | Recruiter
-  </p>
+    <p class="subtitle">
+      Virtual Assistant | Dispatcher | Recruiter
+    </p>
+
+    <a href="#contact" class="btn">
+      Contact Me
+    </a>
+
+  </div>
+
+  <div class="hero-image">
+
+    <img 
+      src="https://imgur.com/a/yAH1Y9H"
+      alt="Lee Carmelo"
+      class="profile-pic"
+    >
+
+  </div>
 
 </header>
 
-<section>
 
-  <h2>About Me</h2>
-
-  <div class="box">
-
-    <p>
-      Experienced in customer service, recruitment,
-      dispatching, appointment setting, and lead generation.
-    </p>
-
-  </div>
-
-</section>
-
-<section>
-
-  <h2>Skills</h2>
-
-  <div class="box">
-
-    <ul>
-      <li>Virtual Assistance</li>
-      <li>Recruitment</li>
-      <li>Dispatching</li>
-      <li>Lead Generation</li>
-      <li>Customer Service</li>
-    </ul>
-
-  </div>
-
-</section>
-
-<section>
-
-  <h2>Contact</h2>
-
-  <div class="box">
-
-    <p>Email: erlcarmelo25@gmail.com</p>
-    <p>Phone: 09935620503</p>
-
-  </div>
-
-</section>
-
-<footer>
-
-  <p>© 2026 Lee Carmelo</p>
-
-</footer>
-
-</body>
-</html>
