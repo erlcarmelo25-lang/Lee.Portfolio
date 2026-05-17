@@ -1,244 +1,435 @@
-<!DOCTYPE html>
-<html lang="en">
+import { useState } from "react";
+import * as Tabs from "@radix-ui/react-tabs";
+import { User, Briefcase, Code } from "lucide-react";
 
-<head>
+export default function App() {
+  const [activeTab, setActiveTab] = useState("about");
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="container mx-auto px-4 py-12 max-w-6xl">
+        <header className="mb-16 text-center">
+          <div className="mb-8 flex justify-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
+              <div className="relative w-48 h-48 rounded-full border-2 border-primary overflow-hidden bg-card">
+                <img
+                  src="https://i.imgur.com/yiDIhRZ.png"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <h1 className="mb-4 tracking-tight text-foreground">
+            <span className="block text-6xl mb-2">Lee Carmelo</span>
+            <span className="block text-2xl text-primary font-light tracking-widest uppercase">Portfolio</span>
+          </h1>
+          <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent" />
+        </header>
 
-  <title>Lee Carmelo Portfolio</title>
+        <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
+          <Tabs.List className="flex justify-center gap-2 mb-12 border-b border-border pb-4">
+            <Tabs.Trigger
+              value="about"
+              className="group px-8 py-3 relative overflow-hidden transition-colors data-[state=active]:text-primary"
+            >
+              <span className="relative z-10 flex items-center gap-2 uppercase tracking-widest text-sm">
+                <User size={16} />
+                About
+              </span>
+              <div className="absolute inset-0 bg-primary/10 transform scale-x-0 group-data-[state=active]:scale-x-100 transition-transform origin-left" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 group-data-[state=active]:scale-x-100 transition-transform" />
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              value="skills"
+              className="group px-8 py-3 relative overflow-hidden transition-colors data-[state=active]:text-primary"
+            >
+              <span className="relative z-10 flex items-center gap-2 uppercase tracking-widest text-sm">
+                <Code size={16} />
+                Skills
+              </span>
+              <div className="absolute inset-0 bg-primary/10 transform scale-x-0 group-data-[state=active]:scale-x-100 transition-transform origin-left" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 group-data-[state=active]:scale-x-100 transition-transform" />
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              value="experience"
+              className="group px-8 py-3 relative overflow-hidden transition-colors data-[state=active]:text-primary"
+            >
+              <span className="relative z-10 flex items-center gap-2 uppercase tracking-widest text-sm">
+                <Briefcase size={16} />
+                Experience
+              </span>
+              <div className="absolute inset-0 bg-primary/10 transform scale-x-0 group-data-[state=active]:scale-x-100 transition-transform origin-left" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 group-data-[state=active]:scale-x-100 transition-transform" />
+            </Tabs.Trigger>
+          </Tabs.List>
 
-  <style>
+          <Tabs.Content value="about" className="focus:outline-none">
+            <div className="bg-card border border-border p-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h2 className="mb-4 text-primary uppercase tracking-widest">About Me</h2>
+                  <div className="h-px w-16 bg-primary mb-6" />
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    I am a motivated and detail-oriented Virtual Assistant with experience in dispatching, recruitment, appointment setting, lead generation, and customer support. I have developed strong communication and organizational skills that help me manage tasks efficiently, support clients effectively, and maintain smooth day-to-day operations.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                   With a background in customer service and operations, I am adaptable, fast to learn new tools and systems, and comfortable working in fast-paced environments. I am committed to delivering quality results, staying proactive, and helping businesses improve efficiency and productivity.
+                </div>
+                <div className="space-y-4">
+                  <div className="border-l-2 border-secondary pl-4">
+                    <h3 className="text-sm uppercase tracking-widest text-primary mb-1">Location</h3>
+                    <p className="text-muted-foreground">Parañaque,Metro Manila</p>
+                  </div>
+                  <div className="border-l-2 border-secondary pl-4">
+                    <h3 className="text-sm uppercase tracking-widest text-primary mb-1">Email</h3>
+                    <p className="text-muted-foreground">erlcarmelo@gmail.com</p>
+                  </div>
+                  <div className="border-l-2 border-secondary pl-4">
+                    <h3 className="text-sm uppercase tracking-widest text-primary mb-1">Focus</h3>
+                    <p className="text-muted-foreground">Streamlining operations, managing client communication, and supporting business growth through efficient virtual assistance.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Tabs.Content>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+          <Tabs.Content value="skills" className="focus:outline-none">
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-card border border-border p-6 hover:border-primary transition-colors group">
+                <div className="mb-4 text-primary">
+                  <div className="w-12 h-12 border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <span className="text-xl">01</span>
+                  </div>
+                </div>
+                <h3 className="mb-3 uppercase tracking-widest text-sm">Core Skills</h3>
+                <div className="h-px w-12 bg-primary mb-4" />
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Virtual Assistance
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Customer Service & Support
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Dispatching & Scheduling
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Appointment Setting
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Lead Generation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Recruitment Support
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Email & Chat Management
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Administrative Support
+                  </li>
+                </ul>
+              </div>
 
-    body{
-      background:#000000;
-      color:#f5deb3;
-      line-height:1.6;
-    }
+              <div className="bg-card border border-border p-6 hover:border-primary transition-colors group">
+                <div className="mb-4 text-primary">
+                  <div className="w-12 h-12 border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <span className="text-xl">02</span>
+                  </div>
+                </div>
+                <h3 className="mb-3 uppercase tracking-widest text-sm">Technical Skills</h3>
+                <div className="h-px w-12 bg-primary mb-4" />
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    CRM Tools (if you’ve used any like HubSpot, Zoho, etc.)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Google Workspace
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Microsoft Office
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Basic Data Entry & Reportin
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Online Research
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Basic Website Editing / Portfolio Setup
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Technical Customer Support (software, account, and system troubleshooting)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Hardware Technical Support (basic diagnosis of device issues and functionality errors)
+                  </li>
+                </ul>
+              </div>
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:0 10%;
-      gap:50px;
-    }
+              <div className="bg-card border border-border p-6 hover:border-primary transition-colors group">
+                <div className="mb-4 text-primary">
+                  <div className="w-12 h-12 border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <span className="text-xl">03</span>
+                  </div>
+                </div>
+                <h3 className="mb-3 uppercase tracking-widest text-sm">Soft Skills</h3>
+                <div className="h-px w-12 bg-primary mb-4" />
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Strong Communication
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Time Management
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Attention to Detail
+                      </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Adaptability
+                      </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Fast Learner
+                      </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    Multitasking
+                      </li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Tabs.Content>
 
-    .hero-text{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:flex-start;
-    }
+          <Tabs.Content value="experience" className="focus:outline-none">
+            <div className="space-y-6">
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">March 2026 - May 2026</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Account Representative / Dispatcher</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">CIVICOM PACIFIC CORP.</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Coordinate dispatch operations, scheduling, and customer support.
+                      Maintain communication logs, reports, and service updates.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-    .hero-image{
-      flex:1;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">April 2025 - January 2026</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Escalations Desk Representative for META</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">CONCENTRIX CVG PHILIPPINES, INC.</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Managed escalated META customer concerns and coordinated issue resolutions.
+                      Maintained high-quality support and case documentation.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-    .profile-pic{
-      width:320px;
-      height:320px;
-      border-radius:50%;
-      object-fit:cover;
-      border:5px solid royalblue;
-      box-shadow:0 0 25px rgba(65,105,225,0.5);
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">January 2025 - March 2025</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">CE Recruiter and Dispatcher</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">DYGITAL DYNAMICS</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Supported recruitment, dispatch scheduling, and administrative coordination.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-    h1{
-      font-size:72px;
-      color:#f5deb3;
-      margin-bottom:10px;
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">May 2024 – November 2024</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Customer Advisor for BETMGM Online Betting</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">NCH CUSTOMER SUPPORT SERVICES</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Assisted customers with account concerns through phone, email, and chat support.
+                    </p>
+                 </div>
+                </div>
+              </div>
 
-    .subtitle{
-      font-size:24px;
-      color:royalblue;
-      margin-bottom:30px;
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">August 2023 – February 2024</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Technical Support Specialist for OneNZ</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">TELCO SERVICES INTERNATIONAL PHILIPPINES</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Provided troubleshooting and technical support for telecommunications services.
+                    </p>
+                 </div>
+                </div>
+              </div>
 
-    .btn{
-      display:inline-block;
-      padding:14px 28px;
-      background:royalblue;
-      color:white;
-      text-decoration:none;
-      border-radius:8px;
-      font-weight:bold;
-      transition:0.3s;
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">November 2022 – July 2023</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Travel Sales Representative</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">TRANSWORLD SYSTEMS CUSTOMER SERVICES</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Assisted customers with travel bookings, reservations, and sales support.
+                    </p>
+                 </div>
+                </div>
+              </div>
+                  
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">July 2022 – September 2023</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">HR Admin, Recruiter, and Dispatcher</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">MCGEE PRO</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Managed recruitment support, dispatch coordination, and HR administration.
+                    </p>
+                 </div>
+                </div>
+              </div>
 
-    .btn:hover{
-      transform:scale(1.05);
-      background:#4169e1;
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">June 2019 – June 2022</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Account & Purchases Representative / Resolution Specialist</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">AMAZON OPERATION SERVICES PHILIPPINES, INC. </div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Managed customer account concerns, escalations, and resolution support.
+                      Handled complex cases while maintaining service quality standards.
+                    </p>
+                 </div>
+                </div>
+              </div>
 
-    section{
-      padding:80px 10%;
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">August 2018 – May 2019</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Sales Development Representative / Lead Generation Team Lead</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">CIENCE</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Managed outbound lead generation, prospecting, and CRM updates.
+                    </p>
+                 </div>
+                </div>
+              </div>
 
-    h2{
-      font-size:40px;
-      color:royalblue;
-      margin-bottom:20px;
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest">June 2017 – May 2018</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Customer Service Representative for PayPal</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">EPERFORMAX CONTACT CENTERS CORP.</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Assisted customers with account and payment-related concerns
+                    </p>
+                 </div>
+                </div>
+              </div>
 
-    .card{
-      background:#111111;
-      border:1px solid royalblue;
-      padding:30px;
-      border-radius:15px;
-      box-shadow:0 0 15px rgba(65,105,225,0.2);
-    }
+              <div className="bg-card border border-border p-8 relative overflow-hidden group hover:border-primary transition-colors">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 transform rotate-45 translate-x-16 -translate-y-16" />
+                <div className="flex gap-8 items-start relative">
+                  <div className="text-primary min-w-[120px]">
+                    <div className="text-sm uppercase tracking-widest"> June 2016 – June 2017</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-xl">Travel Sales Representative / Realtime Analyst</h3>
+                    <div className="text-primary text-sm uppercase tracking-widest mb-4">TELEPERFORMANCE INCORPORATED</div>
+                    <div className="h-px w-16 bg-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      Assisted customers with travel reservations and workforce monitoring support.  
+                    </p>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </Tabs.Content>
+        </Tabs.Root>
 
-    ul{
-      margin-left:20px;
-    }
-
-    li{
-      margin-bottom:10px;
-    }
-
-    footer{
-      text-align:center;
-      padding:25px;
-      background:#050505;
-      border-top:1px solid royalblue;
-      color:#f5deb3;
-    }
-
-    @media(max-width:768px){
-
-      .hero{
-        flex-direction:column-reverse;
-        justify-content:center;
-        text-align:center;
-        padding-top:50px;
-      }
-
-      .hero-text{
-        align-items:center;
-      }
-
-      h1{
-        font-size:44px;
-      }
-
-      .subtitle{
-        font-size:18px;
-      }
-
-      .profile-pic{
-        width:220px;
-        height:220px;
-      }
-
-      h2{
-        font-size:32px;
-      }
-
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <header class="hero">
-
-    <div class="hero-text">
-
-      <h1>Lee Carmelo</h1>
-
-      <p class="subtitle">
-        Virtual Assistant | Dispatcher | Recruiter
-      </p>
-
-      <a href="#contact" class="btn">
-        Contact Me
-      </a>
-
+        <footer className="mt-16 pt-8 border-t border-border text-center">
+          <div className="flex justify-center gap-4 mb-4">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+            <div className="w-2 h-2 border border-primary rotate-45" />
+            <div className="w-8 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+          </div>
+          <p className="text-muted-foreground text-sm uppercase tracking-widest">
+            Crafted with precision
+          </p>
+        </footer>
+      </div>
     </div>
-
-    <div class="hero-image">
-
-      <img
-        src="https://i.imgur.com/yiDIhRZ.png"
-        alt="Lee Carmelo"
-        class="profile-pic"
-      >
-
-    </div>
-
-  </header>
-
-  <section>
-
-    <h2>About Me</h2>
-
-    <div class="card">
-
-      <p>
-        Experienced professional specializing in customer service,
-        dispatching, recruitment, appointment setting, and lead generation.
-        Dedicated to helping businesses stay organized and client-focused.
-      </p>
-
-    </div>
-
-  </section>
-
-  <section>
-
-    <h2>Skills</h2>
-
-    <div class="card">
-
-      <ul>
-        <li>Virtual Assistance</li>
-        <li>Recruitment</li>
-        <li>Dispatching</li>
-        <li>Appointment Setting</li>
-        <li>Lead Generation</li>
-        <li>Customer Service</li>
-      </ul>
-
-    </div>
-
-  </section>
-
-  <section id="contact">
-
-    <h2>Contact</h2>
-
-    <div class="card">
-
-      <p>Email: erlcarmelo25@gmail.com</p>
-      <p>Phone: 09935620503</p>
-      <p>Location: Parañaque City, Metro Manila</p>
-
-    </div>
-
-  </section>
-
-  <footer>
-
-    <p>© 2026 Lee Carmelo. All Rights Reserved.</p>
-
-  </footer>
-
-</body>
-
-</html>
+  );
+}
